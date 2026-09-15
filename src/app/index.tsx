@@ -5,8 +5,8 @@ import { StyleSheet, View } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      {/* <EntranceScreen /> */}
-      <MarioScreen />
+      <EntranceScreen />
+      {/* <MarioScreen /> */}
     </View>
   );
 }
