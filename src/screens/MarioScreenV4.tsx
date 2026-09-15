@@ -35,7 +35,7 @@ const MarioScreen = () => {
 
   return (
     <View className='flex-1 w-full items-center justify-center bg-white'>
-      <Animated.View style={{ height: sizeStyle, width: 200 }} className='bg-red-200'>
+      <Animated.View style={{ height: sizeStyle, width: sizeStyle }} className='bg-red-200'>
         
       </Animated.View>
 
