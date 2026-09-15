@@ -15,21 +15,26 @@ const ExpandableView = ({ title, children }: ExpandableViewProps) => {
     Animated.timing(animation, {
       toValue: isExpanded ? 0 : 1,
       duration: 300,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
+
     setIsExpanded(!isExpanded);
   };
 
-  const animatedRotateStyle = {
-    transform: [
-      {
-        rotate: animation.interpolate({
-          inputRange: [0, 1],
-          outputRange: ["0deg", "180deg"],
-        }),
-      },
-    ],
-  };
+  const rotate = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "180deg"],
+  });
+
+  const maxHeight = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 500], // Adjust the output range as needed
+  });
+
+  const opacity = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
 
   return (
     <View className='w-95 border border-gray-300 rounded-lg shadow-md '>
@@ -41,17 +46,25 @@ const ExpandableView = ({ title, children }: ExpandableViewProps) => {
           className='flex-row items-center justify-between'
         >
           <Text className='text-lg font-semibold'>{title}</Text>
-          <Animated.View style={animatedRotateStyle}>
+          <Animated.View style={{ transform: [{rotate}]}}>
             <ChevronDown />
           </Animated.View>
         </TouchableOpacity>
       </View>
 
-      {isExpanded && (
+      {/* {isExpanded && (
         <View className='w-full p-4 bg-gray-100 rounded-b-lg'>
           <View className='w-full'>{children}</View>
         </View>
-      )}
+      )} */}
+      <Animated.View
+        style={{ maxHeight, opacity }}
+        className='w-full rounded-b-lg'
+      >
+        <View className='w-full p-4'>
+          {children}
+        </View>
+      </Animated.View>
     </View>
   );
 };
