@@ -28,13 +28,6 @@ const MarioScreen = () => {
     }).start();
   };
 
-  const animatedStyle = {
-    height: animatedHeight.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 300], // Adjust the output range as needed
-    }),
-  };
-
   const sizeStyle = animatedHeight.interpolate({
     inputRange: [0, 1],
     outputRange: [50, 200], // Adjust the output range as needed
