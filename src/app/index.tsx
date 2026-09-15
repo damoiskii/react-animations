@@ -1,10 +1,12 @@
+import EntranceScreen from "@/screens/EntranceScreen";
 import MarioScreen from "@/screens/MarioScreen";
 import { StyleSheet, View } from "react-native";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <MarioScreen />
+      <EntranceScreen />
+      {/* <MarioScreen /> */}
     </View>
   );
 }
