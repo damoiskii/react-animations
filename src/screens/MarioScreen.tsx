@@ -3,7 +3,7 @@ import { Animated, Button, Text, View } from "react-native";
 
 const MOVE_VALUE = 20;
 const ANIMATION_CONFIG = {
-  duration: 300, // Duration of the animation in milliseconds
+  duration: 500, // Duration of the animation in milliseconds
   useNativeDriver: true, // Use native driver for better performance
 };
 
@@ -73,6 +73,7 @@ const MarioScreen = () => {
           width: 100,
           height: 100,
           transform: [{ translateX }, { translateY }],
+        //   zIndex: 1,
         }}
         resizeMode='contain'
       />
