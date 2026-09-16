@@ -1,15 +1,8 @@
 import { useRef, useState } from "react";
 import { Animated, Button, Text, View } from "react-native";
 
-const MOVE_VALUE = 20;
-const ANIMATION_CONFIG = {
-  duration: 500, // Duration of the animation in milliseconds
-  useNativeDriver: true, // Use native driver for better performance
-};
-
 const MarioScreen = () => {
   const MarioImage = require("@/assets/images/mario.png");
-
   const rotation = useRef(new Animated.Value(0)).current;
 
   const rotate = () => {
